@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">TodoistClone</string>
+
+    <!-- BROWSE SCREEN -->
+    <string name="browse_screen_title">Browse</string> <!-- REMOVE LATER -->
+    <string name="inbox">Inbox</string>
+    <string name="completed">Completed</string>
+    <string name="filters_tags"><![CDATA[Filters & Tags]]></string>
+    <string name="my_projects">My Projects</string>
+    <string name="manage_projects">Manage projects</string>
+</resources>
