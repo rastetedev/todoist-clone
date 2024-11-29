@@ -6,7 +6,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.composable
 import com.raulastete.todoistclone.navigation.Route
 
-fun NavGraphBuilder.BrowseNavigation(
+fun NavGraphBuilder.browseNavigation(
     navController: NavHostController
 ) {
 

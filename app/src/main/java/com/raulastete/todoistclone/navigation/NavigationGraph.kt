@@ -4,7 +4,8 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import com.raulastete.todoistclone.browse.BrowseNavigation
+import com.raulastete.todoistclone.browse.browseNavigation
+import com.raulastete.todoistclone.projects.creation.projectCreationNavigation
 
 @Composable
 fun NavigationGraph(
@@ -25,11 +26,13 @@ fun NavigationGraph(
 
         composable<Route.Main.FiltersNTags> { }
 
-        BrowseNavigation(navController = navController)
+        browseNavigation(navController = navController)
 
         composable<Route.Main.Productivity> { }
 
         composable<Route.Main.ActivityLog> { }
+
+        projectCreationNavigation(navController = navController)
 
         composable<Route.Configuration.Settings> { }
 
