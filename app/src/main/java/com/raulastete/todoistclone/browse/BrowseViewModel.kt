@@ -11,8 +11,8 @@ class BrowseViewModel : ViewModel() {
     private val _uiState = MutableStateFlow(BrowseUiState())
     val uiState: StateFlow<BrowseUiState> = _uiState.asStateFlow()
 
-    fun onIntent(browseIntent: BrowseIntent) {
-        when (browseIntent) {
+    fun onIntent(intent: BrowseIntent) {
+        when (intent) {
             BrowseIntent.ToggleProjectVisibility -> {
                 _uiState.update {
                     it.copy(

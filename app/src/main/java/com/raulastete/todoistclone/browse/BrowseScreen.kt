@@ -82,24 +82,23 @@ fun BrowseContent(
     onNavigateToManageProjects: () -> Unit,
     sendIntent: (BrowseIntent) -> Unit
 ) {
-
-    Scaffold(
-        topBar = {
-            TopAppBar(
-                title = { UsernameHeader(username = browseUiState.username) },
-                modifier = Modifier.clickable { onNavigateToProductivity() },
-                actions = {
-                    IconButton(onClick = onNavigateToNotifications) {
-                        Icon(Icons.Default.Notifications, contentDescription = null)
+    with(browseUiState) {
+        Scaffold(
+            topBar = {
+                TopAppBar(
+                    title = { UsernameHeader(username = username) },
+                    modifier = Modifier.clickable { onNavigateToProductivity() },
+                    actions = {
+                        IconButton(onClick = onNavigateToNotifications) {
+                            Icon(Icons.Default.Notifications, contentDescription = null)
+                        }
+                        IconButton(onClick = onNavigateToSettings) {
+                            Icon(Icons.Default.Settings, contentDescription = null)
+                        }
                     }
-                    IconButton(onClick = onNavigateToSettings) {
-                        Icon(Icons.Default.Settings, contentDescription = null)
-                    }
-                }
-            )
-        }
-    ) { padding ->
-        with(browseUiState) {
+                )
+            }
+        ) { padding ->
             Column(
                 Modifier
                     .fillMaxSize()
