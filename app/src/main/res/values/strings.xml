@@ -2,10 +2,17 @@
     <string name="app_name">TodoistClone</string>
 
     <!-- BROWSE SCREEN -->
-    <string name="browse_screen_title">Browse</string> <!-- REMOVE LATER -->
     <string name="inbox">Inbox</string>
     <string name="completed">Completed</string>
     <string name="filters_tags"><![CDATA[Filters & Tags]]></string>
     <string name="my_projects">My Projects</string>
     <string name="manage_projects">Manage projects</string>
+
+    <!-- CREATE PROJECT -->
+    <string name="create_project_title">Create Project</string>
+    <string name="project_name_label">Project Name</string>
+    <string name="project_color_label">Project Color</string>
+    <string name="project_parent_label">Parent Project</string>
+    <string name="project_favorite_label">Favorite</string>
+    <string name="no_parent_project">No Parent</string>
 </resources>
