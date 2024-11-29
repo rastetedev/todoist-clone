@@ -46,7 +46,7 @@ fun NavigationGraph(
 
         composable<Route.Configuration.AppIcon> { }
 
-        composable<Route.Configuration.NavigationMenu> { }
+        composable<Route.Configuration.NavigationBar> { }
 
         composable<Route.Configuration.QuickAdd> { }
 

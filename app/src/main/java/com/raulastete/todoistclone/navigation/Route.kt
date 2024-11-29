@@ -62,7 +62,7 @@ sealed interface Route {
         data object AppIcon : Route
 
         @Serializable
-        data object NavigationMenu : Route
+        data object NavigationBar : Route
 
         @Serializable
         data object QuickAdd : Route
