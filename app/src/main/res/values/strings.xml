@@ -15,4 +15,19 @@
     <string name="project_parent_label">Parent Project</string>
     <string name="project_favorite_label">Favorite</string>
     <string name="no_parent_project">No Parent</string>
+
+    <!-- NAVIGATION BAR SETTINGS -->
+    <string name="navigation_bar_title">Navigation bar</string>
+    <string name="navigation_bar_headline">Customize the placement of the Dynamic add button and arrange the buttons in the app bar.</string>
+    <string name="dynamic_add_button_title">Dynamic add button placement</string>
+    <string name="left">Left</string>
+    <string name="center">Center</string>
+    <string name="right">Right</string>
+    <string name="buttons_title">Buttons</string>
+    <string name="today_nav_item">Today</string>
+    <string name="upcoming_nav_item">Upcoming</string>
+    <string name="search_nav_item">Search</string>
+    <string name="browse_nav_item">Browse</string>
+    <string name="notifications_nav_item">Notifications</string>
+    <string name="restore_defaults_button">Restore defaults</string>
 </resources>

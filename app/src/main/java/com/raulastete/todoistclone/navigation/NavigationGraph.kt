@@ -6,6 +6,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.raulastete.todoistclone.browse.browseNavigation
 import com.raulastete.todoistclone.projects.creation.projectCreationNavigation
+import com.raulastete.todoistclone.settings.navigationbar.navigationBarNavigation
 
 @Composable
 fun NavigationGraph(
@@ -46,7 +47,7 @@ fun NavigationGraph(
 
         composable<Route.Configuration.AppIcon> { }
 
-        composable<Route.Configuration.NavigationBar> { }
+        navigationBarNavigation(navController = navController)
 
         composable<Route.Configuration.QuickAdd> { }
 
