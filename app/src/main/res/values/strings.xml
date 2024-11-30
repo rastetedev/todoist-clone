@@ -47,4 +47,17 @@
     <string name="notifications_settings">Notifications</string>
     <string name="more_section_settings">More</string>
     <string name="logout_settings">Log out</string>
+
+    <!-- PROJECT MANAGEMENT -->
+    <string name="project_management_screen_title">Projects</string>
+    <string name="search_projects_placeholder"><![CDATA[Search projects & folders]]></string>
+    <string name="active_projects">Active projects</string>
+    <string name="archived_projects">Archived projects</string>
+    <string name="project_status_options">Project status</string>
+    <plurals name="projects_quantity">
+        <item quantity="one">%d project</item>
+        <item quantity="other">%d projects</item>
+    </plurals>
+
+
 </resources>
