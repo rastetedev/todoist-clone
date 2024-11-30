@@ -6,6 +6,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.raulastete.todoistclone.browse.browseNavigation
 import com.raulastete.todoistclone.projects.creation.projectCreationNavigation
+import com.raulastete.todoistclone.settings.list.settingsNavigation
 import com.raulastete.todoistclone.settings.navigationbar.navigationBarNavigation
 
 @Composable
@@ -35,7 +36,7 @@ fun NavigationGraph(
 
         projectCreationNavigation(navController = navController)
 
-        composable<Route.Configuration.Settings> { }
+        settingsNavigation(navController = navController)
 
         composable<Route.Configuration.Upgrade> { }
 
