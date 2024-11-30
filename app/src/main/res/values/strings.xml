@@ -30,6 +30,7 @@
     <string name="browse_nav_item">Browse</string>
     <string name="notifications_nav_item">Notifications</string>
     <string name="restore_defaults_button">Restore defaults</string>
+    <string name="add_button">Add</string>
 
     <!-- SETTINGS LIST -->
     <string name="setting_screen_title">Settings</string>

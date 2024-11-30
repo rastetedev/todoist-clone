@@ -5,10 +5,13 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material.icons.filled.MoreVert
 import androidx.compose.material.icons.filled.NotificationsNone
@@ -16,14 +19,13 @@ import androidx.compose.material.icons.filled.Restore
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material.icons.filled.Today
 import androidx.compose.material.icons.filled.Upcoming
-import androidx.compose.material3.Button
-import androidx.compose.material3.Checkbox
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.ListItem
-import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedButton
+import androidx.compose.material3.RadioButton
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
@@ -35,6 +37,7 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.raulastete.todoistclone.R
 import com.raulastete.todoistclone.domain.DynamicAddButtonPlacement
@@ -81,15 +84,18 @@ fun NavigationBarContent(
                     .padding(padding)
             ) {
                 Text(
-                    stringResource(R.string.navigation_bar_headline),
-                    style = MaterialTheme.typography.labelSmall
+                    modifier = Modifier.padding(start = 16.dp),
+                    text = stringResource(R.string.navigation_bar_headline),
+                    fontSize = 14.sp
                 )
 
                 Spacer(Modifier.height(16.dp))
 
                 Text(
-                    stringResource(R.string.dynamic_add_button_title),
-                    fontWeight = FontWeight.Bold
+                    modifier = Modifier.padding(start = 16.dp),
+                    text = stringResource(R.string.dynamic_add_button_title),
+                    fontWeight = FontWeight.SemiBold,
+                    fontSize = 14.sp
                 )
 
                 Spacer(Modifier.height(32.dp))
@@ -98,6 +104,8 @@ fun NavigationBarContent(
                     horizontalArrangement = Arrangement.SpaceBetween,
                     verticalAlignment = Alignment.CenterVertically
                 ) {
+                    Spacer(Modifier.weight(1f))
+
                     DynamicAddButtonPlacementItem(
                         position = DynamicAddButtonPlacement.LEFT,
                         isChecked = dynamicAddButtonPlacementChecked == DynamicAddButtonPlacement.LEFT,
@@ -109,6 +117,9 @@ fun NavigationBarContent(
                             )
                         }
                     )
+
+                    Spacer(Modifier.width(32.dp))
+
                     DynamicAddButtonPlacementItem(
                         position = DynamicAddButtonPlacement.CENTER,
                         isChecked = dynamicAddButtonPlacementChecked == DynamicAddButtonPlacement.CENTER,
@@ -120,6 +131,9 @@ fun NavigationBarContent(
                             )
                         }
                     )
+
+                    Spacer(Modifier.width(32.dp))
+
                     DynamicAddButtonPlacementItem(
                         position = DynamicAddButtonPlacement.RIGHT,
                         isChecked = dynamicAddButtonPlacementChecked == DynamicAddButtonPlacement.RIGHT,
@@ -131,45 +145,76 @@ fun NavigationBarContent(
                             )
                         }
                     )
+
+                    Spacer(Modifier.weight(1f))
                 }
 
                 Spacer(Modifier.height(32.dp))
 
                 HorizontalDivider()
 
-                Text(stringResource(R.string.buttons_title))
+                Text(
+                    modifier = Modifier.padding(start = 16.dp, top = 16.dp),
+                    text = stringResource(R.string.buttons_title),
+                    fontSize = 14.sp,
+                    fontWeight = FontWeight.SemiBold
+                )
 
                 ButtonItem(
                     icon = Icons.Default.Today,
-                    text = stringResource(R.string.today_nav_item)
+                    text = stringResource(R.string.today_nav_item),
+                    onClick = {}
                 )
 
                 ButtonItem(
                     icon = Icons.Default.Upcoming,
-                    text = stringResource(R.string.upcoming_nav_item)
+                    text = stringResource(R.string.upcoming_nav_item),
+                    onClick = {}
                 )
 
                 ButtonItem(
                     icon = Icons.Default.Search,
-                    text = stringResource(R.string.search_nav_item)
+                    text = stringResource(R.string.search_nav_item),
+                    onClick = {}
                 )
 
                 ButtonItem(
                     icon = Icons.Default.Menu,
-                    text = stringResource(R.string.browse_nav_item)
+                    text = stringResource(R.string.browse_nav_item),
+                    onClick = {}
                 )
 
                 ButtonItem(
                     icon = Icons.Default.NotificationsNone,
-                    text = stringResource(R.string.notifications_nav_item)
+                    text = stringResource(R.string.notifications_nav_item),
+                    onClick = {}
                 )
 
-                Button(onClick = {}) {
-                    Row {
+                HorizontalDivider()
+
+                ListItem(
+                    leadingContent = {
+                        Icon(Icons.Default.Add, contentDescription = null)
+                    },
+                    headlineContent = {
+                        Text(stringResource(R.string.add_button))
+                    }
+                )
+
+                OutlinedButton(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(horizontal = 16.dp)
+                        .padding(top = 32.dp),
+                    onClick = {}
+                ) {
+                    Row(verticalAlignment = Alignment.CenterVertically) {
                         Icon(Icons.Default.Restore, contentDescription = null)
-                        Text(stringResource(R.string.restore_defaults_button))
+                        Spacer(Modifier.width(16.dp))
+                        Text(stringResource(R.string.restore_defaults_button).uppercase())
                     }
                 }
+
             }
         }
     }
@@ -181,12 +226,15 @@ fun DynamicAddButtonPlacementItem(
     isChecked: Boolean,
     onCheck: (position: DynamicAddButtonPlacement, isChecked: Boolean) -> Unit
 ) {
-    Column(verticalArrangement = Arrangement.spacedBy(16.dp)) {
+    Column(
+        verticalArrangement = Arrangement.spacedBy(16.dp),
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
         //TODO: Image
         Text(position.toPrintedName())
-        Checkbox(
-            checked = isChecked,
-            onCheckedChange = { isChecked ->
+        RadioButton(
+            selected = isChecked,
+            onClick = {
                 onCheck(position, isChecked)
             }
         )
@@ -194,7 +242,7 @@ fun DynamicAddButtonPlacementItem(
 }
 
 @Composable
-fun ButtonItem(icon: ImageVector, text: String) {
+fun ButtonItem(icon: ImageVector, text: String, onClick: () -> Unit) {
     ListItem(
         leadingContent = {
             Icon(icon, contentDescription = null)
@@ -203,7 +251,9 @@ fun ButtonItem(icon: ImageVector, text: String) {
             Text(text)
         },
         trailingContent = {
-            Icon(Icons.Default.MoreVert, contentDescription = null)
+            IconButton(onClick = onClick) {
+                Icon(Icons.Default.MoreVert, contentDescription = null)
+            }
         }
     )
 }
