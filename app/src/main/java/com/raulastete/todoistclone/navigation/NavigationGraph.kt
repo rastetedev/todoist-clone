@@ -9,6 +9,7 @@ import com.raulastete.todoistclone.projects.creation.projectCreationNavigation
 import com.raulastete.todoistclone.projects.management.projectManagementNavigation
 import com.raulastete.todoistclone.settings.list.settingsNavigation
 import com.raulastete.todoistclone.settings.navigationbar.navigationBarNavigation
+import com.raulastete.todoistclone.settings.quickadd.quickAddNavigation
 
 @Composable
 fun NavigationGraph(
@@ -53,7 +54,7 @@ fun NavigationGraph(
 
         navigationBarNavigation(navController = navController)
 
-        composable<Route.Configuration.QuickAdd> { }
+        quickAddNavigation(navController = navController)
 
         composable<Route.Configuration.Productivity> { }
 

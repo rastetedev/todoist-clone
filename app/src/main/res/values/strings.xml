@@ -59,5 +59,22 @@
         <item quantity="other">%d projects</item>
     </plurals>
 
+    <!-- QUICK ADD -->
+    <string name="quick_add_screen_title">Quick Add</string>
+    <string name="show_action_labels_title">Show action labels</string>
+    <string name="show_action_labels_description_visible">All action labels are visible</string>
+    <string name="show_action_labels_description_hidden">All action labels are hidden</string>
+    <string name="task_actions_arrangement_title">Task actions arrangement</string>
+    <string name="hide_all_button">Hide all</string>
+    <string name="show_all_button">Show all</string>
+    <string name="quick_action_reminders">Reminders</string>
+    <string name="quick_action_priority">Priority</string>
+    <string name="quick_action_due_date">Due date</string>
+    <string name="quick_action_asignee">Assignee</string>
+    <string name="quick_action_labels">Labels</string>
+    <string name="quick_action_location">Location</string>
+    <string name="more_task_actions_title">More task actions</string>
+    <string name="preview">Preview</string>
+
 
 </resources>
