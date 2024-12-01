@@ -70,7 +70,7 @@ fun ProjectCreationContent(
                             Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = null)
                         }
                     },
-                    title = { Text(stringResource(R.string.create_project_title)) },
+                    title = { Text(stringResource(R.string.create_project_screen_title)) },
                     actions = {
                         IconButton(onClick = { sendIntent(ProjectCreationIntent.CreateProject) }) {
                             Icon(Icons.Default.Check, contentDescription = null)

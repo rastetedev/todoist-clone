@@ -73,7 +73,7 @@ fun NavigationBarContent(
                         }
                     },
                     title = {
-                        Text(stringResource(R.string.navigation_bar_title))
+                        Text(stringResource(R.string.navigation_bar_screen_title))
                     },
                 )
             }

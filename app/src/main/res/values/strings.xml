@@ -9,7 +9,7 @@
     <string name="manage_projects">Manage projects</string>
 
     <!-- CREATE PROJECT -->
-    <string name="create_project_title">Create Project</string>
+    <string name="create_project_screen_title">Create Project</string>
     <string name="project_name_label">Project Name</string>
     <string name="project_color_label">Project Color</string>
     <string name="project_parent_label">Parent Project</string>
@@ -17,7 +17,7 @@
     <string name="no_parent_project">No Parent</string>
 
     <!-- NAVIGATION BAR SETTINGS -->
-    <string name="navigation_bar_title">Navigation bar</string>
+    <string name="navigation_bar_screen_title">Navigation bar</string>
     <string name="navigation_bar_headline">Customize the placement of the Dynamic add button and arrange the buttons in the app bar.</string>
     <string name="dynamic_add_button_title">Dynamic add button placement</string>
     <string name="left">Left</string>
