@@ -3,7 +3,7 @@ package com.raulastete.todoistclone.settings.navigationbar
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.res.stringResource
 import com.raulastete.todoistclone.R
-import com.raulastete.todoistclone.domain.DynamicAddButtonPlacement
+import com.raulastete.todoistclone.domain.entity.DynamicAddButtonPlacement
 
 @Composable
 fun DynamicAddButtonPlacement.toPrintedName(): String {

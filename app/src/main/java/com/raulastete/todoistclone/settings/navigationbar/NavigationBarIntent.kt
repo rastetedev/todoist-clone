@@ -1,6 +1,6 @@
 package com.raulastete.todoistclone.settings.navigationbar
 
-import com.raulastete.todoistclone.domain.DynamicAddButtonPlacement
+import com.raulastete.todoistclone.domain.entity.DynamicAddButtonPlacement
 
 sealed interface NavigationBarIntent {
 

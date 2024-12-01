@@ -40,7 +40,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.raulastete.todoistclone.R
-import com.raulastete.todoistclone.domain.DynamicAddButtonPlacement
+import com.raulastete.todoistclone.domain.entity.DynamicAddButtonPlacement
 
 @Composable
 fun NavigationBarScreen(
