@@ -4,17 +4,10 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.rememberNavController
-import com.raulastete.todoistclone.navigation.NavigationGraph
-import com.raulastete.todoistclone.navigation.Route
-import com.raulastete.todoistclone.ui.theme.TodoistCloneTheme
+import com.raulastete.todoistclone.presentation.navigation.NavigationGraph
+import com.raulastete.todoistclone.presentation.navigation.Route
+import com.raulastete.todoistclone.presentation.theme.TodoistCloneTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -27,7 +20,8 @@ class MainActivity : ComponentActivity() {
 
                 NavigationGraph(
                     navController = rootNavController,
-                    startDestination = Route.Main.Browse
+                    //TODO: Implement Logic to show Login Navigation or Main Destination
+                    startDestination = Route.Main
                 )
             }
         }
