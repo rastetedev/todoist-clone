@@ -1,23 +1,23 @@
-package com.raulastete.todoistclone.projects.management
+package com.raulastete.todoistclone.presentation.features.projects.management
 
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.composable
-import com.raulastete.todoistclone.navigation.Route
+import com.raulastete.todoistclone.presentation.navigation.Route
 import org.koin.androidx.compose.koinViewModel
 
-fun NavGraphBuilder.projectManagementNavigation(
+fun NavGraphBuilder.projectManagementDestination(
     navController: NavHostController
 ) {
-    composable<Route.Main.ManageProjects> {
+    composable<Route.ManageProjects> {
         ProjectManagementScreen(
             projectManagementViewModel = koinViewModel(),
             onNavigateBack = navController::popBackStack,
             onNavigateToCreateProject = {
-                navController.navigate(Route.Main.CreateProject)
+                navController.navigate(Route.CreateProject)
             },
             onNavigateToProject = {
-                navController.navigate(Route.Main.Project(it))
+                navController.navigate(Route.Project(it))
             }
         )
     }

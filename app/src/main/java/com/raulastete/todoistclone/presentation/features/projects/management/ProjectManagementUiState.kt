@@ -1,4 +1,4 @@
-package com.raulastete.todoistclone.projects.management
+package com.raulastete.todoistclone.presentation.features.projects.management
 
 import com.raulastete.todoistclone.domain.entity.Project
 import com.raulastete.todoistclone.domain.entity.ProjectStatus
