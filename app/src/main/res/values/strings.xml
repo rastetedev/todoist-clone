@@ -4,7 +4,7 @@
     <!-- BROWSE SCREEN -->
     <string name="inbox">Inbox</string>
     <string name="completed">Completed</string>
-    <string name="filters_tags"><![CDATA[Filters & Tags]]></string>
+    <string name="filters_n_labels"><![CDATA[Filters & Labels]]></string>
     <string name="my_projects">My Projects</string>
     <string name="manage_projects">Manage projects</string>
 
