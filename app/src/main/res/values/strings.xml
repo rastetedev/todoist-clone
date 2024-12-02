@@ -78,5 +78,13 @@
     <string name="more_task_actions_title">More task actions</string>
     <string name="preview">Preview</string>
 
+    <!-- MAIN BOTTOM BAR SCREENS TITLE -->
+    <string name="today_screen_title">Today</string>
+    <string name="upcoming_screen_title">Upcoming</string>
+    <string name="filters_n_labels_screen_title"><![CDATA[Filters & Labels]]></string>
+    <string name="search_screen_title">Search</string>
+    <string name="notifications_screen_title">Notifications</string>
+    <string name="inbox_screen_title">Inbox</string>
+
 
 </resources>
