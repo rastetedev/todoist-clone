@@ -1,8 +1,7 @@
-package com.raulastete.todoistclone.settings.quickadd
+package com.raulastete.todoistclone.presentation.features.settings.quickadd
 
 import androidx.annotation.StringRes
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.Label
 import androidx.compose.material.icons.filled.Alarm
 import androidx.compose.material.icons.filled.MyLocation
 import androidx.compose.material.icons.filled.NewLabel
@@ -12,6 +11,14 @@ import androidx.compose.material.icons.filled.Today
 import androidx.compose.ui.graphics.vector.ImageVector
 import com.raulastete.todoistclone.R
 import com.raulastete.todoistclone.domain.entity.QuickAddAction
+
+data class QuickAddActionModel(
+    val key : QuickAddAction,
+    @StringRes val name: Int,
+    val icon: ImageVector,
+    val isPro: Boolean = false,
+    val isArranged: Boolean = true
+)
 
 fun QuickAddAction.toModel() : QuickAddActionModel {
    return when (this) {
@@ -53,12 +60,3 @@ fun QuickAddAction.toModel() : QuickAddActionModel {
         )
     }
 }
-
-
-data class QuickAddActionModel(
-    val key : QuickAddAction,
-    @StringRes val name: Int,
-    val icon: ImageVector,
-    val isPro: Boolean = false,
-    val isArranged: Boolean = true
-)

@@ -1,4 +1,4 @@
-package com.raulastete.todoistclone.components
+package com.raulastete.todoistclone.presentation.components
 
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -13,7 +13,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.raulastete.todoistclone.settings.quickadd.QuickAddActionModel
+import com.raulastete.todoistclone.presentation.features.settings.quickadd.QuickAddActionModel
 
 @Composable
 fun QuickAddActionChip(action: QuickAddActionModel) {

@@ -1,4 +1,4 @@
-package com.raulastete.todoistclone.settings.quickadd
+package com.raulastete.todoistclone.presentation.features.settings.quickadd
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -36,33 +36,33 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.raulastete.todoistclone.R
-import com.raulastete.todoistclone.components.DefaultQuickAddAction
-import com.raulastete.todoistclone.components.ProBadge
-import com.raulastete.todoistclone.components.QuickAddActionChip
-import com.raulastete.todoistclone.components.SectionTitle
+import com.raulastete.todoistclone.presentation.components.DefaultQuickAddAction
+import com.raulastete.todoistclone.presentation.components.ProBadge
+import com.raulastete.todoistclone.presentation.components.QuickAddActionChip
+import com.raulastete.todoistclone.presentation.components.SectionTitle
 
 @Composable
-fun QuickAddScreen(
-    quickAddViewModel: QuickAddViewModel,
+fun QuickAddConfigScreen(
+    quickAddConfigViewModel: QuickAddConfigViewModel,
     onNavigateBack: () -> Unit
 ) {
-    val quickAddUiState by quickAddViewModel.uiState.collectAsStateWithLifecycle()
+    val quickAddUiState by quickAddConfigViewModel.uiState.collectAsStateWithLifecycle()
 
     QuickAddContent(
-        quickAddUiState = quickAddUiState,
+        quickAddConfigUiState = quickAddUiState,
         onNavigateBack = onNavigateBack,
-        sendIntent = quickAddViewModel::onIntent
+        sendIntent = quickAddConfigViewModel::onIntent
     )
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun QuickAddContent(
-    quickAddUiState: QuickAddUiState,
+    quickAddConfigUiState: QuickAddConfigUiState,
     onNavigateBack: () -> Unit,
-    sendIntent: (QuickAddIntent) -> Unit
+    sendIntent: (QuickAddConfigIntent) -> Unit
 ) {
-    with(quickAddUiState) {
+    with(quickAddConfigUiState) {
         Scaffold(
             topBar = {
                 TopAppBar(
@@ -82,7 +82,7 @@ fun QuickAddContent(
             ) {
                 ShowActionLabelsSection(
                     isChecked = showActionLabels,
-                    onCheckedChange = { sendIntent(QuickAddIntent.ToggleShowActionLabelsOption) }
+                    onCheckedChange = { sendIntent(QuickAddConfigIntent.ToggleShowActionLabelsOption) }
                 )
 
                 Spacer(Modifier.height(16.dp))
@@ -156,7 +156,7 @@ private fun PreviewSection(taskActionsArrangement: List<QuickAddActionModel>) {
 private fun TaskActionsArrangementSection(
     isFullFilled: Boolean,
     quickAddActions: List<QuickAddActionModel>,
-    sendIntent: (QuickAddIntent) -> Unit
+    sendIntent: (QuickAddConfigIntent) -> Unit
 ) {
     Column {
         Row(
@@ -168,13 +168,13 @@ private fun TaskActionsArrangementSection(
             Spacer(Modifier.weight(1f))
             if (isFullFilled) {
                 TextButton(onClick = {
-                    sendIntent(QuickAddIntent.RemoveAllTaskActionsFromArrangement)
+                    sendIntent(QuickAddConfigIntent.RemoveAllTaskActionsFromArrangement)
                 }) {
                     Text(stringResource(R.string.hide_all_button))
                 }
             } else {
                 TextButton(onClick = {
-                    sendIntent(QuickAddIntent.AddAllTaskActionsToArrangement)
+                    sendIntent(QuickAddConfigIntent.AddConfigAllTaskActionsToArrangement)
                 }) {
                     Text(stringResource(R.string.show_all_button))
                 }
@@ -193,7 +193,7 @@ private fun TaskActionsArrangementSection(
 @Composable
 private fun MoreTaskActionsSection(
     quickAddActions: List<QuickAddActionModel>,
-    sendIntent: (QuickAddIntent) -> Unit
+    sendIntent: (QuickAddConfigIntent) -> Unit
 ) {
     Column {
         SectionTitle(text = stringResource(R.string.more_task_actions_title))
@@ -213,7 +213,7 @@ private fun MoreTaskActionsSection(
 private fun TaskActionItem(
     isHidden: Boolean,
     quickAddActionModel: QuickAddActionModel,
-    sendIntent: (QuickAddIntent) -> Unit
+    sendIntent: (QuickAddConfigIntent) -> Unit
 ) {
     Row(
         modifier = Modifier.padding(horizontal = 8.dp),
@@ -222,7 +222,7 @@ private fun TaskActionItem(
     ) {
         if (isHidden) {
             IconButton(onClick = {
-                sendIntent(QuickAddIntent.AddTaskActionToArrangement(quickAddActionModel.key))
+                sendIntent(QuickAddConfigIntent.AddConfigTaskActionToArrangement(quickAddActionModel.key))
             }) {
                 Icon(
                     Icons.Default.AddCircle, contentDescription = null,
@@ -231,7 +231,7 @@ private fun TaskActionItem(
             }
         } else {
             IconButton(onClick = {
-                sendIntent(QuickAddIntent.RemoveTaskActionFromArrangement(quickAddActionModel.key))
+                sendIntent(QuickAddConfigIntent.RemoveTaskActionFromArrangement(quickAddActionModel.key))
             }) {
                 Icon(
                     Icons.Default.RemoveCircle,
