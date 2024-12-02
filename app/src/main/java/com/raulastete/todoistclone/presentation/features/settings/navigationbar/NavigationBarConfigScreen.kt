@@ -1,4 +1,4 @@
-package com.raulastete.todoistclone.settings.navigationbar
+package com.raulastete.todoistclone.presentation.features.settings.navigationbar
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -40,30 +40,31 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.raulastete.todoistclone.R
+import com.raulastete.todoistclone.presentation.components.SectionTitle
 import com.raulastete.todoistclone.domain.entity.DynamicAddButtonPlacement
 
 @Composable
-fun NavigationBarScreen(
-    navigationBarViewModel: NavigationBarViewModel,
+fun NavigationBarConfigScreen(
+    navigationBarConfigViewModel: NavigationBarConfigViewModel,
     onNavigateBack: () -> Unit
 ) {
-    val navigationBarUiState by navigationBarViewModel.uiState.collectAsStateWithLifecycle()
+    val navigationBarUiState by navigationBarConfigViewModel.uiState.collectAsStateWithLifecycle()
 
     NavigationBarContent(
-        navigationBarUiState = navigationBarUiState,
+        navigationBarConfigUiState = navigationBarUiState,
         onNavigateBack = onNavigateBack,
-        sendIntent = navigationBarViewModel::onIntent
+        sendIntent = navigationBarConfigViewModel::onIntent
     )
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun NavigationBarContent(
-    navigationBarUiState: NavigationBarUiState,
+    navigationBarConfigUiState: NavigationBarConfigUiState,
     onNavigateBack: () -> Unit,
-    sendIntent: (NavigationBarIntent) -> Unit
+    sendIntent: (NavigationBarConfigIntent) -> Unit
 ) {
-    with(navigationBarUiState) {
+    with(navigationBarConfigUiState) {
         Scaffold(
             topBar = {
                 TopAppBar(
@@ -111,7 +112,7 @@ fun NavigationBarContent(
                         isChecked = dynamicAddButtonPlacementChecked == DynamicAddButtonPlacement.LEFT,
                         onCheck = { position, isChecked ->
                             sendIntent(
-                                NavigationBarIntent.ChangeDynamicAddButtonPlacement(
+                                NavigationBarConfigIntent.ChangeDynamicAddButtonPlacement(
                                     position, isChecked
                                 )
                             )
@@ -125,7 +126,7 @@ fun NavigationBarContent(
                         isChecked = dynamicAddButtonPlacementChecked == DynamicAddButtonPlacement.CENTER,
                         onCheck = { position, isChecked ->
                             sendIntent(
-                                NavigationBarIntent.ChangeDynamicAddButtonPlacement(
+                                NavigationBarConfigIntent.ChangeDynamicAddButtonPlacement(
                                     position, isChecked
                                 )
                             )
@@ -139,7 +140,7 @@ fun NavigationBarContent(
                         isChecked = dynamicAddButtonPlacementChecked == DynamicAddButtonPlacement.RIGHT,
                         onCheck = { position, isChecked ->
                             sendIntent(
-                                NavigationBarIntent.ChangeDynamicAddButtonPlacement(
+                                NavigationBarConfigIntent.ChangeDynamicAddButtonPlacement(
                                     position, isChecked
                                 )
                             )
@@ -153,11 +154,9 @@ fun NavigationBarContent(
 
                 HorizontalDivider()
 
-                Text(
-                    modifier = Modifier.padding(start = 16.dp, top = 16.dp),
-                    text = stringResource(R.string.buttons_title),
-                    fontSize = 14.sp,
-                    fontWeight = FontWeight.SemiBold
+                SectionTitle(
+                    modifier = Modifier.padding(16.dp), //TODO: Refactor later to only send missing modifier
+                    text = stringResource(R.string.buttons_title)
                 )
 
                 ButtonItem(

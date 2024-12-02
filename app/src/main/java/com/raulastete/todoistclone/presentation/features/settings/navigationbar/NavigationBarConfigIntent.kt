@@ -1,11 +1,11 @@
-package com.raulastete.todoistclone.settings.navigationbar
+package com.raulastete.todoistclone.presentation.features.settings.navigationbar
 
 import com.raulastete.todoistclone.domain.entity.DynamicAddButtonPlacement
 
-sealed interface NavigationBarIntent {
+sealed interface NavigationBarConfigIntent {
 
     data class ChangeDynamicAddButtonPlacement(
         val dynamicAddButtonPlacement: DynamicAddButtonPlacement,
         val isChecked: Boolean
-    ) : NavigationBarIntent
+    ) : NavigationBarConfigIntent
 }
