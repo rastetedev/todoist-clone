@@ -6,6 +6,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.raulastete.todoistclone.browse.browseNavigation
 import com.raulastete.todoistclone.projects.creation.projectCreationNavigation
+import com.raulastete.todoistclone.projects.detail.projectNavigation
 import com.raulastete.todoistclone.projects.management.projectManagementNavigation
 import com.raulastete.todoistclone.settings.list.settingsNavigation
 import com.raulastete.todoistclone.settings.navigationbar.navigationBarNavigation
@@ -39,6 +40,8 @@ fun NavigationGraph(
         projectCreationNavigation(navController = navController)
 
         projectManagementNavigation(navController = navController)
+
+        projectNavigation(navController = navController)
 
         settingsNavigation(navController = navController)
 
