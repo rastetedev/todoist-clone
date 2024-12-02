@@ -1,6 +1,5 @@
-package com.raulastete.todoistclone.ui.theme
+package com.raulastete.todoistclone.presentation.theme
 
-import android.app.Activity
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme

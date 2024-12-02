@@ -1,4 +1,4 @@
-package com.raulastete.todoistclone.ui.theme
+package com.raulastete.todoistclone.presentation.theme
 
 import androidx.compose.ui.graphics.Color
 
