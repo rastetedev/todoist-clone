@@ -1,7 +1,7 @@
 package com.raulastete.todoistclone
 
 import android.app.Application
-import com.raulastete.todoistclone.browse.browseModule
+import com.raulastete.todoistclone.presentation.features.browse.browseModule
 import com.raulastete.todoistclone.di.appModule
 import com.raulastete.todoistclone.di.repositoryModule
 import com.raulastete.todoistclone.projects.creation.projectCreationModule

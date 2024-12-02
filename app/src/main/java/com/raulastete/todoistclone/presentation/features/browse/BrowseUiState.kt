@@ -1,4 +1,4 @@
-package com.raulastete.todoistclone.browse
+package com.raulastete.todoistclone.presentation.features.browse
 
 import com.raulastete.todoistclone.domain.entity.Project
 
