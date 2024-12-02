@@ -29,6 +29,8 @@
     <string name="search_nav_item">Search</string>
     <string name="browse_nav_item">Browse</string>
     <string name="notifications_nav_item">Notifications</string>
+    <string name="inbox_nav_item">Inbox</string>
+    <string name="filter_labels_nav_item">Filters</string>
     <string name="restore_defaults_button">Restore defaults</string>
     <string name="add_button">Add</string>
 
