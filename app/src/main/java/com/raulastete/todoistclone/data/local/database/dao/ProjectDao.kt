@@ -4,6 +4,7 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
 import com.raulastete.todoistclone.data.local.database.table.ProjectTable
+import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface ProjectDao {
@@ -13,4 +14,7 @@ interface ProjectDao {
 
     @Query("SELECT * FROM ProjectTable WHERE id = :projectId")
     suspend fun getProjectSnapshot(projectId: Long) : ProjectTable
+
+    @Query("SELECT * FROM ProjectTable")
+    fun getProjects() : Flow<List<ProjectTable>>
 }

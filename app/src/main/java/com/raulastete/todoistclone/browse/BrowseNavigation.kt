@@ -1,10 +1,10 @@
 package com.raulastete.todoistclone.browse
 
-import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.composable
 import com.raulastete.todoistclone.navigation.Route
+import org.koin.androidx.compose.koinViewModel
 
 fun NavGraphBuilder.browseNavigation(
     navController: NavHostController
@@ -12,7 +12,7 @@ fun NavGraphBuilder.browseNavigation(
 
     composable<Route.Main.Browse> {
         BrowseScreen(
-            browseViewModel = viewModel(),
+            browseViewModel = koinViewModel(),
             onNavigateToProductivity = { navController.navigate(Route.Main.Productivity) },
             onNavigateToNotifications = { navController.navigate(Route.Main.Notifications) },
             onNavigateToSettings = { navController.navigate(Route.Configuration.Settings) },

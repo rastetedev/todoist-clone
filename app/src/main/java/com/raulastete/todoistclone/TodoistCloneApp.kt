@@ -1,6 +1,7 @@
 package com.raulastete.todoistclone
 
 import android.app.Application
+import com.raulastete.todoistclone.browse.browseModule
 import com.raulastete.todoistclone.di.appModule
 import com.raulastete.todoistclone.di.repositoryModule
 import com.raulastete.todoistclone.projects.creation.projectCreationModule
@@ -17,7 +18,7 @@ class TodoistCloneApp : Application() {
             androidLogger()
             androidContext(this@TodoistCloneApp)
             modules(
-                appModule + repositoryModule + projectCreationModule + projectModule
+                appModule + repositoryModule + projectCreationModule + projectModule + browseModule
             )
         }
     }
