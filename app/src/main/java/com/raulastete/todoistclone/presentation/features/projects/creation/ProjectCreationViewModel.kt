@@ -1,4 +1,4 @@
-package com.raulastete.todoistclone.projects.creation
+package com.raulastete.todoistclone.presentation.features.projects.creation
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope

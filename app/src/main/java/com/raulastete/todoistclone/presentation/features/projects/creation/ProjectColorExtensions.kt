@@ -1,4 +1,4 @@
-package com.raulastete.todoistclone.projects.creation
+package com.raulastete.todoistclone.presentation.features.projects.creation
 
 import androidx.compose.ui.graphics.Color
 import com.raulastete.todoistclone.domain.entity.ProjectColor

@@ -1,4 +1,4 @@
-package com.raulastete.todoistclone.projects.creation
+package com.raulastete.todoistclone.presentation.features.projects.creation
 
 import com.raulastete.todoistclone.domain.entity.Project
 import com.raulastete.todoistclone.domain.entity.ProjectColor

@@ -1,4 +1,4 @@
-package com.raulastete.todoistclone.projects.creation
+package com.raulastete.todoistclone.presentation.features.projects.creation
 
 import org.koin.core.module.dsl.viewModel
 import org.koin.dsl.module
