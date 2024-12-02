@@ -12,3 +12,7 @@ interface ProjectCreationIntent {
     data class ChangeProjectColor(val projectColor: ProjectColor) : ProjectCreationIntent
     data class ChangeParentProject(val parentProject: Project) : ProjectCreationIntent
 }
+
+sealed interface ProjectCreationEvent {
+    data class ProjectCreated(val projectId: Long) : ProjectCreationEvent
+}

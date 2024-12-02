@@ -1,20 +1,42 @@
 package com.raulastete.todoistclone.projects.creation
 
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import com.raulastete.todoistclone.domain.entity.Project
+import com.raulastete.todoistclone.domain.repository.ProjectRepository
+import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.flow.update
+import kotlinx.coroutines.launch
 
-class ProjectCreationViewModel : ViewModel() {
+class ProjectCreationViewModel(
+    private val projectRepository: ProjectRepository
+) : ViewModel() {
 
     private val _uiState = MutableStateFlow(ProjectCreationUiState())
     val uiState: StateFlow<ProjectCreationUiState> = _uiState.asStateFlow()
 
+    private val _events = Channel<ProjectCreationEvent>()
+    val events = _events.receiveAsFlow()
+
     fun onIntent(intent: ProjectCreationIntent) {
         when (intent) {
             ProjectCreationIntent.CreateProject -> {
-                //TODO: Implement when repository is implemented
+                viewModelScope.launch {
+                    val projectId = projectRepository.createProject(
+                        Project(
+                            name = uiState.value.projectName,
+                            parentProjectId = uiState.value.parentProject?.id ?: 0L,
+                            isFavorite = uiState.value.isFavoriteProject,
+                            color = uiState.value.projectColor
+                        )
+                    )
+
+                    _events.send(ProjectCreationEvent.ProjectCreated(projectId))
+                }
             }
 
             is ProjectCreationIntent.ProjectNameChange ->
