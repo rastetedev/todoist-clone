@@ -147,15 +147,15 @@ fun ProjectManagementContent(
                 Text(
                     text = pluralStringResource(
                         R.plurals.projects_quantity,
-                        projects.size,
-                        projects.size
+                        projectList.size,
+                        projectList.size
                     ),
                     modifier = Modifier.padding(start = 16.dp),
                     fontWeight = FontWeight.Bold
                 )
 
                 LazyColumn {
-                    items(projects, key = { project -> project.id }) {
+                    items(projectList, key = { project -> project.id }) {
                         ListItem(
                             modifier = Modifier.clickable {
                                 onNavigateToProject(it.id)
