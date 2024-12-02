@@ -47,7 +47,7 @@ fun BrowseScreen(
     onNavigateToActivityLog: () -> Unit,
     onNavigateToFiltersNTags: () -> Unit,
     onNavigateToCreateProject: () -> Unit,
-    onNavigateToProject: (projectId: Int) -> Unit,
+    onNavigateToProject: (projectId: Long) -> Unit,
     onNavigateToManageProjects: () -> Unit
 ) {
     val browseUiState by browseViewModel.uiState.collectAsStateWithLifecycle()
@@ -78,7 +78,7 @@ fun BrowseContent(
     onNavigateToActivityLog: () -> Unit,
     onNavigateToFiltersNTags: () -> Unit,
     onNavigateToCreateProject: () -> Unit,
-    onNavigateToProject: (projectId: Int) -> Unit,
+    onNavigateToProject: (projectId: Long) -> Unit,
     onNavigateToManageProjects: () -> Unit,
     sendIntent: (BrowseIntent) -> Unit
 ) {

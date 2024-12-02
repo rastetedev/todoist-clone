@@ -39,7 +39,7 @@ sealed interface Route {
         data object ManageProjects : Route
 
         @Serializable
-        data class Project(val projectId: Int) : Route
+        data class Project(val projectId: Long) : Route
     }
 
     sealed interface Configuration {

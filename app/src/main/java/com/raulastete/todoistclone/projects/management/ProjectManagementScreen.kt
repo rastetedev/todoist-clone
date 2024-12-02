@@ -47,7 +47,7 @@ fun ProjectManagementScreen(
     projectManagementViewModel: ProjectManagementViewModel,
     onNavigateBack: () -> Unit,
     onNavigateToCreateProject: () -> Unit,
-    onNavigateToProject: (projectId: Int) -> Unit
+    onNavigateToProject: (projectId: Long) -> Unit
 ) {
     val projectManagementUiState by projectManagementViewModel.uiState.collectAsStateWithLifecycle()
 
@@ -66,7 +66,7 @@ fun ProjectManagementContent(
     projectManagementUiState: ProjectManagementUiState,
     onNavigateBack: () -> Unit,
     onNavigateToCreateProject: () -> Unit,
-    onNavigateToProject: (projectId: Int) -> Unit,
+    onNavigateToProject: (projectId: Long) -> Unit,
     sendIntent: (ProjectManagementIntent) -> Unit
 ) {
     with(projectManagementUiState) {
