@@ -1,4 +1,4 @@
-package com.raulastete.todoistclone.projects.detail
+package com.raulastete.todoistclone.presentation.features.projects.detail
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
