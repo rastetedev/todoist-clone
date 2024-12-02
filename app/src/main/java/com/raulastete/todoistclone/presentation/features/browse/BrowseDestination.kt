@@ -6,7 +6,7 @@ import androidx.navigation.compose.composable
 import com.raulastete.todoistclone.presentation.navigation.Route
 import org.koin.androidx.compose.koinViewModel
 
-fun NavGraphBuilder.BrowseNavigation(
+fun NavGraphBuilder.BrowseDestination(
     navController: NavHostController
 ) {
     composable<Route.Browse> {
@@ -17,7 +17,7 @@ fun NavGraphBuilder.BrowseNavigation(
             onNavigateToFiltersNLabels = { navController.navigate(Route.FiltersNLabels) },
             onNavigateToCreateProject = { navController.navigate(Route.CreateProject) },
             onNavigateToProject = { projectId -> navController.navigate(Route.Project(projectId)) },
-            onNavigateToManageProjects = { navController.navigate(Route.ManageProjects) }
+            onNavigateToManageProjects = { navController.navigate(Route.ProjectManagement) }
         )
     }
 }

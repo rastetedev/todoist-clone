@@ -9,7 +9,7 @@ import com.raulastete.todoistclone.presentation.features.settings.quickadd.quick
 import com.raulastete.todoistclone.presentation.navigation.Route
 import com.raulastete.todoistclone.presentation.navigation.Subgraph
 
-fun NavGraphBuilder.settingsNavigation(
+fun NavGraphBuilder.settingsDestination(
     navController: NavHostController
 ){
     navigation<Subgraph.Configuration>(startDestination = Route.Settings){

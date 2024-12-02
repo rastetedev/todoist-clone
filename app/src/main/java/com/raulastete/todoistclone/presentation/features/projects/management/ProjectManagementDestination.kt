@@ -9,7 +9,7 @@ import org.koin.androidx.compose.koinViewModel
 fun NavGraphBuilder.projectManagementDestination(
     navController: NavHostController
 ) {
-    composable<Route.ManageProjects> {
+    composable<Route.ProjectManagement> {
         ProjectManagementScreen(
             projectManagementViewModel = koinViewModel(),
             onNavigateBack = navController::popBackStack,
