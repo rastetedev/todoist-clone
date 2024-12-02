@@ -1,4 +1,4 @@
-package com.raulastete.todoistclone.components
+package com.raulastete.todoistclone.presentation.components
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.padding
@@ -9,7 +9,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.raulastete.todoistclone.ui.theme.Pro
+import com.raulastete.todoistclone.presentation.theme.Pro
 
 @Composable
 fun ProBadge(modifier: Modifier = Modifier) {
