@@ -35,7 +35,7 @@ sealed class Route {
     data object CreateProject : Route()
 
     @Serializable
-    data object ManageProjects : Route()
+    data object ProjectManagement : Route()
 
     @Serializable
     data class Project(val projectId: Long) : Route()
