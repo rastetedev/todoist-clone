@@ -1,4 +1,4 @@
-package com.raulastete.todoistclone.settings.navigationbar
+package com.raulastete.todoistclone.presentation.features.settings.navigationbar
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.res.stringResource
