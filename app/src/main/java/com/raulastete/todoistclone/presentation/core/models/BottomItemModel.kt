@@ -15,6 +15,7 @@ import com.raulastete.todoistclone.domain.entity.BottomItem
 import com.raulastete.todoistclone.presentation.navigation.Route
 
 data class BottomItemModel(
+    val key : BottomItem,
     val route: Route,
     @StringRes val label: Int,
     val icon: ImageVector,
@@ -26,6 +27,7 @@ data class BottomItemModel(
 fun BottomItem.toModel(): BottomItemModel {
     return when (this) {
         BottomItem.TODAY -> BottomItemModel(
+            key = this,
             route = Route.Today,
             label = R.string.today_nav_item,
             icon = Icons.Default.Today,
@@ -35,6 +37,7 @@ fun BottomItem.toModel(): BottomItemModel {
         )
 
         BottomItem.FILTERS_N_LABELS -> BottomItemModel(
+            key = this,
             route = Route.FiltersNLabels,
             label = R.string.filter_labels_nav_item,
             icon = Icons.Default.FilterAlt,
@@ -44,6 +47,7 @@ fun BottomItem.toModel(): BottomItemModel {
         )
 
         BottomItem.INBOX -> BottomItemModel(
+            key = this,
             route = Route.Inbox,
             label = R.string.inbox_nav_item,
             icon = Icons.Default.Inbox,
@@ -53,6 +57,7 @@ fun BottomItem.toModel(): BottomItemModel {
         )
 
         BottomItem.NOTIFICATIONS -> BottomItemModel(
+            key = this,
             route = Route.Notifications,
             label = R.string.notifications_nav_item,
             icon = Icons.Default.NotificationsNone,
@@ -62,6 +67,7 @@ fun BottomItem.toModel(): BottomItemModel {
         )
 
         BottomItem.SEARCH -> BottomItemModel(
+            key = this,
             route = Route.Search,
             label = R.string.search_nav_item,
             icon = Icons.Default.Search,
@@ -71,6 +77,7 @@ fun BottomItem.toModel(): BottomItemModel {
         )
 
         BottomItem.BROWSE -> BottomItemModel(
+            key = this,
             route = Route.Browse,
             label = R.string.browse_nav_item,
             icon = Icons.Default.Menu,
@@ -80,6 +87,7 @@ fun BottomItem.toModel(): BottomItemModel {
         )
 
         BottomItem.UPCOMING -> BottomItemModel(
+            key = this,
             route = Route.Upcoming,
             label = R.string.upcoming_nav_item,
             icon = Icons.Default.Upcoming,

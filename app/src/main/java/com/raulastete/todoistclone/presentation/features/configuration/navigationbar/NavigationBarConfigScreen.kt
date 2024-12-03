@@ -12,13 +12,9 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.Add
-import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material.icons.filled.MoreVert
-import androidx.compose.material.icons.filled.NotificationsNone
+import androidx.compose.material.icons.filled.Reorder
 import androidx.compose.material.icons.filled.Restore
-import androidx.compose.material.icons.filled.Search
-import androidx.compose.material.icons.filled.Today
-import androidx.compose.material.icons.filled.Upcoming
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
@@ -33,15 +29,16 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.raulastete.todoistclone.R
-import com.raulastete.todoistclone.presentation.components.SectionTitle
+import com.raulastete.todoistclone.domain.entity.BottomItem
 import com.raulastete.todoistclone.domain.entity.DynamicAddButtonPlacement
+import com.raulastete.todoistclone.presentation.components.SectionTitle
+import com.raulastete.todoistclone.presentation.core.models.BottomItemModel
 
 @Composable
 fun NavigationBarConfigScreen(
@@ -159,35 +156,14 @@ fun NavigationBarContent(
                     text = stringResource(R.string.buttons_title)
                 )
 
-                ButtonItem(
-                    icon = Icons.Default.Today,
-                    text = stringResource(R.string.today_nav_item),
-                    onClick = {}
-                )
+                bottomItemsArranged.forEach { bottomItemModel ->
+                    ButtonItem(
+                        bottomItemModel = bottomItemModel,
+                        onClickMoreOptions = {
 
-                ButtonItem(
-                    icon = Icons.Default.Upcoming,
-                    text = stringResource(R.string.upcoming_nav_item),
-                    onClick = {}
-                )
-
-                ButtonItem(
-                    icon = Icons.Default.Search,
-                    text = stringResource(R.string.search_nav_item),
-                    onClick = {}
-                )
-
-                ButtonItem(
-                    icon = Icons.Default.Menu,
-                    text = stringResource(R.string.browse_nav_item),
-                    onClick = {}
-                )
-
-                ButtonItem(
-                    icon = Icons.Default.NotificationsNone,
-                    text = stringResource(R.string.notifications_nav_item),
-                    onClick = {}
-                )
+                        }
+                    )
+                }
 
                 HorizontalDivider()
 
@@ -241,17 +217,27 @@ fun DynamicAddButtonPlacementItem(
 }
 
 @Composable
-fun ButtonItem(icon: ImageVector, text: String, onClick: () -> Unit) {
+fun ButtonItem(
+    bottomItemModel: BottomItemModel,
+    onClickMoreOptions: (BottomItemModel) -> Unit,
+) {
     ListItem(
         leadingContent = {
-            Icon(icon, contentDescription = null)
+            Icon(bottomItemModel.icon, contentDescription = null)
         },
         headlineContent = {
-            Text(text)
+            Text(stringResource(bottomItemModel.label))
         },
         trailingContent = {
-            IconButton(onClick = onClick) {
-                Icon(Icons.Default.MoreVert, contentDescription = null)
+            Row(verticalAlignment = Alignment.CenterVertically) {
+                if (bottomItemModel.key != BottomItem.BROWSE) {
+                    IconButton(onClick = { onClickMoreOptions(bottomItemModel) }) {
+                        Icon(Icons.Default.MoreVert, contentDescription = null)
+                    }
+                }
+                IconButton(onClick = { onClickMoreOptions(bottomItemModel) }) {
+                    Icon(Icons.Default.Reorder, contentDescription = null)
+                }
             }
         }
     )
