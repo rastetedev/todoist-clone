@@ -10,10 +10,7 @@ import com.raulastete.todoistclone.presentation.features.browse.components.Usern
 @Composable
 fun BottomItem.ScreenTitle() =
     when (this) {
-        BottomItem.TODAY -> {
-            Text(stringResource(R.string.today_screen_title))
-        }
-
+        BottomItem.TODAY -> { Text(stringResource(R.string.today_screen_title)) }
         BottomItem.UPCOMING -> Text(stringResource(R.string.upcoming_screen_title))
         BottomItem.FILTERS_N_LABELS -> Text(stringResource(R.string.filters_n_labels_screen_title))
         BottomItem.SEARCH -> Text(stringResource(R.string.search_screen_title))

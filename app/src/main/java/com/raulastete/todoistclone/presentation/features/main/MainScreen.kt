@@ -11,7 +11,6 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.*
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.mutableStateOf
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.navigation.NavHostController
@@ -35,19 +34,21 @@ fun MainScreen(
     rootNavController: NavHostController,
     bottomItemModelList: List<BottomItemModel> = BottomItem.entries.toList().map { it.toModel() },
     onNavigateToNotifications: () -> Unit,
-    onNavigateToSettings: () -> Unit,
-
+    onNavigateToSettings: () -> Unit
 ) {
-
     val bottomNavController = rememberNavController()
-    var bottomItemSelected by remember { mutableStateOf(BottomItem.TODAY) }
+    val navBackStackEntry by bottomNavController.currentBackStackEntryAsState()
+    val currentDestination = navBackStackEntry?.destination?.route
+    val bottomItemSelected = currentDestination?.toBottomItem()
 
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { bottomItemSelected.ScreenTitle() },
+                title = {
+                    bottomItemSelected?.ScreenTitle()
+                },
                 actions = {
-                    bottomItemSelected.TopBarActions(
+                    bottomItemSelected?.TopBarActions(
                         onNavigateToNotifications = onNavigateToNotifications,
                         onNavigateToSettings = onNavigateToSettings,
                         onShowMenu = {
@@ -59,15 +60,12 @@ fun MainScreen(
         },
         bottomBar = {
             MyBottomBar(
+                currentDestination = currentDestination,
                 bottomNavController = bottomNavController,
                 bottomItemModelList = bottomItemModelList,
-                onBottomItemSelected = { bottomItem ->
-                    bottomItemSelected = bottomItem
-                }
             )
         }
     ) { padding ->
-
 
         NavHost(
             modifier = Modifier
@@ -89,24 +87,21 @@ fun MainScreen(
 
 @Composable
 fun MyBottomBar(
+    currentDestination: String?,
     bottomNavController: NavHostController,
-    bottomItemModelList: List<BottomItemModel>,
-    onBottomItemSelected: (BottomItem) -> Unit
+    bottomItemModelList: List<BottomItemModel>
 ) {
-    val navBackStackEntry by bottomNavController.currentBackStackEntryAsState()
-    val currentDestination = navBackStackEntry?.destination
-
     NavigationBar {
         bottomItemModelList
             .filter { it.visible }
             .sortedBy { it.position }
             .take(5) //MAX 5 ITEMS IN BOTTOM BAR
-            .forEach { bottomItem ->
+            .forEach { bottomItemModel ->
                 NavigationBarItem(
-                    selected = currentDestination == bottomItem.route,
-
+                    selected = currentDestination?.contains(bottomItemModel.route.toString())
+                        ?: false,
                     onClick = {
-                        bottomNavController.navigate(bottomItem.route) {
+                        bottomNavController.navigate(bottomItemModel.route) {
                             popUpTo(bottomNavController.graph.startDestinationId) {
                                 saveState = true
                             }
@@ -114,9 +109,15 @@ fun MyBottomBar(
                             restoreState = true
                         }
                     },
-                    icon = { Icon(bottomItem.icon, contentDescription = null) },
-                    label = { Text(stringResource(bottomItem.label)) }
+                    icon = { Icon(bottomItemModel.icon, contentDescription = null) },
+                    label = { Text(stringResource(bottomItemModel.label)) }
                 )
             }
+    }
+}
+
+private fun String.toBottomItem(): BottomItem? {
+    return BottomItem.entries.firstOrNull { bottomItem ->
+        this == bottomItem.toModel().route.toString()
     }
 }
