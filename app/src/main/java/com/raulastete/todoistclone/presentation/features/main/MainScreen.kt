@@ -16,27 +16,26 @@ import androidx.compose.ui.res.stringResource
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.currentBackStackEntryAsState
-import androidx.navigation.compose.rememberNavController
-import com.raulastete.todoistclone.presentation.features.browse.BrowseDestination
+import com.raulastete.todoistclone.presentation.features.browse.browseDestination
 import com.raulastete.todoistclone.presentation.core.models.BottomItemModel
 import com.raulastete.todoistclone.presentation.core.models.toModel
 import com.raulastete.todoistclone.domain.entity.BottomItem
-import com.raulastete.todoistclone.presentation.features.filtersNLabels.FiltersNLabelsDestination
-import com.raulastete.todoistclone.presentation.features.inbox.InboxDestination
-import com.raulastete.todoistclone.presentation.features.notifications.NotificationsNavigation
-import com.raulastete.todoistclone.presentation.features.search.SearchDestination
-import com.raulastete.todoistclone.presentation.features.today.TodayNavigation
-import com.raulastete.todoistclone.presentation.features.upcoming.UpcomingNavigation
+import com.raulastete.todoistclone.presentation.features.filtersNLabels.filtersNLabelsDestination
+import com.raulastete.todoistclone.presentation.features.inbox.inboxDestination
+import com.raulastete.todoistclone.presentation.features.notifications.notificationsDestination
+import com.raulastete.todoistclone.presentation.features.search.searchDestination
+import com.raulastete.todoistclone.presentation.features.today.todayDestination
+import com.raulastete.todoistclone.presentation.features.upcoming.upcomingDestination
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun MainScreen(
     rootNavController: NavHostController,
+    bottomNavController: NavHostController,
     bottomItemModelList: List<BottomItemModel> = BottomItem.entries.toList().map { it.toModel() },
     onNavigateToNotifications: () -> Unit,
     onNavigateToSettings: () -> Unit
 ) {
-    val bottomNavController = rememberNavController()
     val navBackStackEntry by bottomNavController.currentBackStackEntryAsState()
     val currentDestination = navBackStackEntry?.destination?.route
     val bottomItemSelected = currentDestination?.toBottomItem()
@@ -74,13 +73,16 @@ fun MainScreen(
             navController = bottomNavController,
             startDestination = bottomItemModelList.first().route
         ) {
-            TodayNavigation(navController = rootNavController)
-            UpcomingNavigation(navController = rootNavController)
-            FiltersNLabelsDestination(navController = rootNavController)
-            NotificationsNavigation(navController = rootNavController)
-            InboxDestination(navController = rootNavController)
-            SearchDestination(navController = rootNavController)
-            BrowseDestination(navController = rootNavController)
+            todayDestination(navController = bottomNavController)
+            upcomingDestination(navController = bottomNavController)
+            filtersNLabelsDestination(navController = bottomNavController)
+            notificationsDestination(navController = bottomNavController)
+            inboxDestination(navController = bottomNavController)
+            searchDestination(navController = bottomNavController)
+            browseDestination(
+                rootNavController = rootNavController,
+                bottomNavController = bottomNavController
+            )
         }
     }
 }

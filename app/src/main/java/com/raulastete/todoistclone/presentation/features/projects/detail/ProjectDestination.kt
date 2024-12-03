@@ -18,7 +18,7 @@ fun NavGraphBuilder.projectDestination(
 
         ProjectScreen(
             projectViewModel = projectViewModel,
-            onNavigateBack = { navController.popBackStack(route = Route.Browse, inclusive = false) },
+            onNavigateBack = { navController.popBackStack(route = Route.Main, inclusive = false) },
             onNavigateToShareProject = { }
         )
     }
