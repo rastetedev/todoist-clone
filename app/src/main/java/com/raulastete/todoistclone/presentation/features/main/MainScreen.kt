@@ -118,6 +118,6 @@ fun MyBottomBar(
 
 private fun String.toBottomItem(): BottomItem? {
     return BottomItem.entries.firstOrNull { bottomItem ->
-        this == bottomItem.toModel().route.toString()
+        this.contains(bottomItem.toModel().route.toString())
     }
 }
