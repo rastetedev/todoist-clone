@@ -5,7 +5,7 @@ import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
 import com.raulastete.todoistclone.presentation.navigation.Route
 
-fun NavGraphBuilder.NotificationsNavigation(
+fun NavGraphBuilder.notificationsDestination(
     navController: NavController
 ) {
     composable<Route.Notifications> {

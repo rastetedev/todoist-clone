@@ -6,18 +6,19 @@ import androidx.navigation.compose.composable
 import com.raulastete.todoistclone.presentation.navigation.Route
 import org.koin.androidx.compose.koinViewModel
 
-fun NavGraphBuilder.BrowseDestination(
-    navController: NavHostController
+fun NavGraphBuilder.browseDestination(
+    rootNavController: NavHostController,
+    bottomNavController: NavHostController
 ) {
     composable<Route.Browse> {
         BrowseScreen(
             browseViewModel = koinViewModel(),
-            onNavigateToInbox = { navController.navigate(Route.Inbox) },
-            onNavigateToActivityLog = { navController.navigate(Route.ActivityLog) },
-            onNavigateToFiltersNLabels = { navController.navigate(Route.FiltersNLabels) },
-            onNavigateToCreateProject = { navController.navigate(Route.CreateProject) },
-            onNavigateToProject = { projectId -> navController.navigate(Route.Project(projectId)) },
-            onNavigateToManageProjects = { navController.navigate(Route.ProjectManagement) }
+            onNavigateToInbox = { bottomNavController.navigate(Route.Inbox) },
+            onNavigateToActivityLog = { rootNavController.navigate(Route.ActivityLog) },
+            onNavigateToFiltersNLabels = { bottomNavController.navigate(Route.FiltersNLabels) },
+            onNavigateToCreateProject = { rootNavController.navigate(Route.CreateProject) },
+            onNavigateToProject = { projectId -> rootNavController.navigate(Route.Project(projectId)) },
+            onNavigateToManageProjects = { rootNavController.navigate(Route.ProjectManagement) }
         )
     }
 }

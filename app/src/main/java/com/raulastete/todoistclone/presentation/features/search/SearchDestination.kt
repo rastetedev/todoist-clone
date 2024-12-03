@@ -5,7 +5,7 @@ import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
 import com.raulastete.todoistclone.presentation.navigation.Route
 
-fun NavGraphBuilder.SearchDestination(
+fun NavGraphBuilder.searchDestination(
     navController: NavController
 ) {
     composable<Route.Search> {
