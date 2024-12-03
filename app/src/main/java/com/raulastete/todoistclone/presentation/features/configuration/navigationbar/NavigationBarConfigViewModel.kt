@@ -1,4 +1,4 @@
-package com.raulastete.todoistclone.presentation.features.settings.navigationbar
+package com.raulastete.todoistclone.presentation.features.configuration.navigationbar
 
 import androidx.lifecycle.ViewModel
 import kotlinx.coroutines.flow.MutableStateFlow

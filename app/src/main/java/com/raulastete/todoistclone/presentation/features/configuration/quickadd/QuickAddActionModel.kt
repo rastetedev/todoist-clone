@@ -1,4 +1,4 @@
-package com.raulastete.todoistclone.presentation.features.settings.quickadd
+package com.raulastete.todoistclone.presentation.features.configuration.quickadd
 
 import androidx.annotation.StringRes
 import androidx.compose.material.icons.Icons

@@ -1,4 +1,4 @@
-package com.raulastete.todoistclone.presentation.features.settings.quickadd
+package com.raulastete.todoistclone.presentation.features.configuration.quickadd
 
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavGraphBuilder

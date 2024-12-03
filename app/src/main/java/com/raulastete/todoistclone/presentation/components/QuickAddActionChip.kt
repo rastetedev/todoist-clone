@@ -13,7 +13,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.raulastete.todoistclone.presentation.features.settings.quickadd.QuickAddActionModel
+import com.raulastete.todoistclone.presentation.features.configuration.quickadd.QuickAddActionModel
 
 @Composable
 fun QuickAddActionChip(action: QuickAddActionModel) {

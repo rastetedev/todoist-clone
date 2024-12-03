@@ -1,4 +1,4 @@
-package com.raulastete.todoistclone.presentation.features.settings.list
+package com.raulastete.todoistclone.presentation.features.configuration.settings
 
 import androidx.annotation.StringRes
 import androidx.compose.foundation.clickable

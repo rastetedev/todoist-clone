@@ -1,4 +1,4 @@
-package com.raulastete.todoistclone.presentation.features.settings.quickadd
+package com.raulastete.todoistclone.presentation.features.configuration.quickadd
 
 import androidx.lifecycle.ViewModel
 import com.raulastete.todoistclone.domain.entity.QuickAddAction

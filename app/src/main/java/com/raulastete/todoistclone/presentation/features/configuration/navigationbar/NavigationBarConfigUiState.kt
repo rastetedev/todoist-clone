@@ -1,4 +1,4 @@
-package com.raulastete.todoistclone.presentation.features.settings.navigationbar
+package com.raulastete.todoistclone.presentation.features.configuration.navigationbar
 
 import com.raulastete.todoistclone.domain.entity.DynamicAddButtonPlacement
 
